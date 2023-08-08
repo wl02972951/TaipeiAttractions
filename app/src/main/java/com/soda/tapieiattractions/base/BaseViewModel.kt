@@ -8,6 +8,7 @@ import io.reactivex.disposables.Disposable
 abstract class BaseViewModel (application: Application): AndroidViewModel(application){
     //這邊簡易做一個TAG 可以快速適用於Log的Debug
     protected val TAG = "DEBUG_${this.javaClass.simpleName}"
+    protected val app = application
     //用於回收RxJava的資源
     protected val cd = CompositeDisposable()
 
