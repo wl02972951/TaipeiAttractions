@@ -5,6 +5,7 @@
     <string name="transitionTitle" translatable="false">transitionTitle</string>
     <string name="transitionToolbar" translatable="false">transitionToolbar</string>
     <string name="transitionTag" translatable="false">transitionTag</string>
+    <string name="facebook" translatable="false">FaceBook</string>
 
 
     <string name="app_name">Taipei Travel Guide</string>
@@ -21,6 +22,12 @@
     <string name="no_data">Oops has no data</string>
     <string name="web_site">Official website</string>
     <string name="loading">loading</string>
+    <string name="filter_tag">filter tab</string>
+    <string name="category">Classification</string>
+    <string name="service">Serve</string>
+    <string name="friendly">friendly facilities</string>
+    <string name="target">the ethnic group</string>
+    <string name="conform">Sure</string>
 
 
 </resources>

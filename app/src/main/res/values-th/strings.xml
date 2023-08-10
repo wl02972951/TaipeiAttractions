@@ -5,6 +5,7 @@
     <string name="transitionTitle" translatable="false">transitionTitle</string>
     <string name="transitionToolbar" translatable="false">transitionToolbar</string>
     <string name="transitionTag" translatable="false">transitionTag</string>
+    <string name="facebook" translatable="false">FaceBook</string>
 
 
     <string name="app_name">คู่มือท่องเที่ยวไทเป</string>
@@ -21,6 +22,12 @@
     <string name="no_data">อ๊ะไม่มีข้อมูล</string>
     <string name="web_site">เว็บไซต์ทางการ</string>
     <string name="loading">กำลังโหลด</string>
+    <string name="filter_tag">แท็บตัวกรอง</string>
+    <string name="category">การจัดหมวดหมู่</string>
+    <string name="service">ให้บริการ</string>
+    <string name="friendly">สิ่งอำนวยความสะดวกที่เป็นมิตร</string>
+    <string name="target">กลุ่มชาติพันธุ์</string>
+    <string name="conform">แน่นอน</string>
 
 
 </resources>

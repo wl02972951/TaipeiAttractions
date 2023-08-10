@@ -1,10 +1,5 @@
 package com.soda.tapieiattractions.model
 
-import android.os.Parcel
-import android.os.Parcelable
-import androidx.versionedparcelable.ParcelField
-import java.io.File
-import java.io.Serializable
 
 data class AttractionModel(
     val `data`: List<AttractionData>,

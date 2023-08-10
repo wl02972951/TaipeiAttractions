@@ -11,25 +11,11 @@ import com.tencent.mmkv.MMKV
 import java.util.Locale
 
 class TpaApplication : Application() {
-
-    companion object{
-        private var instance:TpaApplication? = null
-
-        fun getAppContext():Context{
-            return instance!!.applicationContext
-        }
-        fun getApp():TpaApplication{
-            return instance!!
-        }
-    }
-
     override fun onCreate() {
         super.onCreate()
         initSharedPreference()
         initSystemLanguage()
     }
-
-
 
 
     /**

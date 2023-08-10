@@ -3,10 +3,12 @@ package com.soda.tapieiattractions.activity.mainActivity.fragment.mainListFragem
 import android.content.Context
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankj.utilcode.util.KeyboardUtils
@@ -17,6 +19,7 @@ import com.soda.tapieiattractions.activity.mainActivity.fragment.mainListFrageme
 import com.soda.tapieiattractions.base.BaseVbFragment
 import com.soda.tapieiattractions.databinding.FragmentMainListBinding
 import com.soda.tapieiattractions.dialog.ChoiceLanguageDialog
+import com.soda.tapieiattractions.dialog.FilterDialog
 import com.soda.tapieiattractions.enumClass.SystemLanguage
 import com.soda.tapieiattractions.sharedPreference.SystemSP
 import com.soda.tapieiattractions.tools.hide
@@ -28,9 +31,6 @@ class MainListFragment : BaseVbFragment<FragmentMainListBinding>(FragmentMainLis
 
     private val viewModel by lazy { ViewModelProvider(requireActivity())[MainViewModel::class.java] }
     private val mAdapter by lazy { MainAttractionsAdapter(viewModel) }
-
-
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -62,25 +62,49 @@ class MainListFragment : BaseVbFragment<FragmentMainListBinding>(FragmentMainLis
             swipe.setOnRefreshListener {
                 viewModel.loadAttractionsData(true)
             }
+            //切換語言
             btLanguage.setOnClickListener {
                 ChoiceLanguageDialog(requireContext()){
                     switchSystemLanguage(it)
                 }.show()
             }
+            //篩選器
+            btFilter.setOnClickListener {
+                FilterDialog(requireContext()){
+                  viewModel.search(it)
+                }.show()
+            }
+            //取消搜尋
+            btCancel.setOnClickListener {
+                etSearch.setText("")
+                viewModel.search("")
+                btCancel.hide()
+            }
 
-            etSearch. setOnEditorActionListener { textView, actionId, keyEvent ->
-                return@setOnEditorActionListener when (actionId) {
-                    EditorInfo.IME_ACTION_SEND,
-                    EditorInfo.IME_ACTION_DONE,
-                    EditorInfo.IME_ACTION_GO,
-                    EditorInfo.IME_ACTION_SEARCH ->{
-                        val text = textView.text.toString()
-                        etSearch.clearFocus()
-                        viewModel.search(text)
-                        KeyboardUtils.hideSoftInput(requireActivity())
-                        true
+            etSearch.apply {
+                setOnEditorActionListener { textView, actionId, keyEvent ->
+                    return@setOnEditorActionListener when (actionId) {
+                        EditorInfo.IME_ACTION_SEND,
+                        EditorInfo.IME_ACTION_DONE,
+                        EditorInfo.IME_ACTION_GO,
+                        EditorInfo.IME_ACTION_SEARCH ->{
+                            val text = textView.text.toString()
+                            etSearch.clearFocus()
+                            viewModel.search(text)
+                            KeyboardUtils.hideSoftInput(requireActivity())
+                            true
+                        }
+                        else-> false
                     }
-                    else-> false
+                }
+                //監聽輸入框
+                //如果有輸入東西就顯示取消按鈕
+                addTextChangedListener {
+                    if (it.isNullOrEmpty().not()){
+                        btCancel.show()
+                    }else{
+                        btCancel.hide()
+                    }
                 }
             }
         }
@@ -101,10 +125,10 @@ class MainListFragment : BaseVbFragment<FragmentMainListBinding>(FragmentMainLis
         with(viewModel){
             attractionsData.observe(viewLifecycleOwner){
                 mAdapter.submitList(it)
-                if (it.isEmpty()){
+                if (it.isEmpty()){ //沒有資料
                     binding.containerNoData.show()
                     mAdapter.submitList(it)
-                }else{
+                }else{ //有資料
                     binding.swipe.isRefreshing = false
                     binding.rvContent.show()
                     binding.containerNoData.hide()
@@ -117,6 +141,7 @@ class MainListFragment : BaseVbFragment<FragmentMainListBinding>(FragmentMainLis
                     }
                 }
             }
+            //搜尋關鍵字
             searchQuery.observe(viewLifecycleOwner){
                 binding.etSearch.setText(it)
             }

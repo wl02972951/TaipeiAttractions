@@ -1,6 +1,7 @@
 package com.soda.tapieiattractions.activity.mainActivity
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.soda.tapieiattractions.api.AttractionApi
@@ -24,13 +25,9 @@ class MainViewModel(application: Application) :BaseViewModel(application) {
     val attractionsData: LiveData<List<AttractionData>>
         get() = _attractionsData
 
-    //分類資料
-    private val _categoryData = MutableLiveData<AttractionModel>()
-    val categoryData: LiveData<AttractionModel>
-        get() = _categoryData
-
-
+    //Api 分頁資料
     var page :Int? = 1
+    //是否加載中
     var isLoading = false
 
     init {
@@ -48,7 +45,7 @@ class MainViewModel(application: Application) :BaseViewModel(application) {
             page=1
             isLoading = false
         }
-        if (page == null || isLoading){
+        if (page == null || isLoading){ //避免重複加載
             return
         }else{
             val loadPage = page?:0
@@ -66,12 +63,19 @@ class MainViewModel(application: Application) :BaseViewModel(application) {
                     page = loadPage +1
                 }
             },{
+                _attractionsData.postValue(emptyList())
+                page = null
                 isLoading = false
+                Log.e(TAG, "loadAttractionsData error: ", it)
             }).autoDispose()
         }
 
     }
 
+    /**
+     * 拿取景點資料
+     * @param position 指定位置
+     */
     fun getAttractionData(position:Int):AttractionData?{
         return _attractionsData.value?.getOrNull(position)
     }
@@ -79,13 +83,14 @@ class MainViewModel(application: Application) :BaseViewModel(application) {
 
     /**
      * 取得分類篩選資料
+     * 將List 轉成 用,分隔的字串
+     * 例： list(1,2,3) -> "1,2,3"
      */
     private fun getCategoryIdQuery():String?{
-
-        if (filterSidList.isEmpty()){
-            return null
+        return if (filterSidList.isEmpty()){
+            null
         }else{
-            return filterSidList.joinToString(separator = ",")
+            filterSidList.joinToString(separator = ",")
         }
     }
 
@@ -118,7 +123,7 @@ class MainViewModel(application: Application) :BaseViewModel(application) {
             _attractionsData.value = listOf()
             page = null
             return
-        }else{
+        }else{ //如果有則加入搜尋條件
             filterSidList = filterData.toMutableList()
             loadAttractionsData(true)
         }

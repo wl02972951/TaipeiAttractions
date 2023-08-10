@@ -74,10 +74,6 @@ class MainAttractionVH(private val binding: ItemMainAttractionBinding,private va
         }
     }
 
-    /**
-     * 取得標籤列表
-     */
-
 
 
 

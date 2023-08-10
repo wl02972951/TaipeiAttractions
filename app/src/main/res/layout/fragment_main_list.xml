@@ -45,7 +45,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="5dp"
-                android:layout_marginEnd="15dp"
+                android:layout_marginEnd="5dp"
                 android:background="@color/transparent"
                 android:hint="@string/search_hint"
                 android:imeOptions="actionSearch"
@@ -53,9 +53,20 @@
                 android:maxLines="1"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btCancel"
                 app:layout_constraintStart_toEndOf="@+id/ivSearch"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btCancel"
+                android:layout_width="25dp"
+                android:visibility="invisible"
+                android:layout_height="25dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/icon_cancel"/>
 
 
         </com.hjq.shape.layout.ShapeConstraintLayout>
@@ -73,6 +84,7 @@
             app:srcCompat="@drawable/icon_language" />
 
         <ImageView
+            android:id="@+id/btFilter"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginEnd="16dp"

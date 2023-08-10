@@ -5,6 +5,7 @@
     <string name="transitionTitle" translatable="false">transitionTitle</string>
     <string name="transitionToolbar" translatable="false">transitionToolbar</string>
     <string name="transitionTag" translatable="false">transitionTag</string>
+    <string name="facebook" translatable="false">FaceBook</string>
 
 
     <string name="app_name">Guía de viaje de Taipéi</string>
@@ -21,6 +22,12 @@
     <string name="no_data">Ups no tiene datos</string>
     <string name="web_site">Página web oficial</string>
     <string name="loading">cargando</string>
+    <string name="filter_tag">pestaña de filtro</string>
+    <string name="category">Clasificación</string>
+    <string name="service">Atender</string>
+    <string name="friendly">instalaciones amigables</string>
+    <string name="target">el grupo etnico</string>
+    <string name="conform">Seguro</string>
 
 
 </resources>

@@ -3,7 +3,6 @@ package com.soda.tapieiattractions.activity.mainActivity.fragment.resultFragment
 import android.graphics.Paint
 import android.os.Bundle
 import android.transition.TransitionInflater
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,18 +22,22 @@ import com.soda.tapieiattractions.adapters.tagAdapter.TagAdapter
 import com.soda.tapieiattractions.base.BaseVbFragment
 import com.soda.tapieiattractions.databinding.FragmentResultBinding
 import com.soda.tapieiattractions.model.AttractionData
-import com.soda.tapieiattractions.tools.LinkFactory
+import com.soda.tapieiattractions.tools.IntentUtil
 
 
 class ResultFragment : BaseVbFragment<FragmentResultBinding>(FragmentResultBinding::inflate) {
 
     companion object {
+        //控制轉場時間
         private const val TRANSITION_DURATION = 300L
     }
 
     private val viewModel by lazy { ViewModelProvider(requireActivity())[MainViewModel::class.java] }
 
+    //取得傳遞過來的資料
     private val args: ResultFragmentArgs by navArgs()
+
+    //取得景點資料
     private val data: AttractionData? by lazy { viewModel.getAttractionData(args.index) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,11 +70,9 @@ class ResultFragment : BaseVbFragment<FragmentResultBinding>(FragmentResultBindi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
-        initModel()
     }
 
     private fun initView() {
-        Log.d("SODA_DEBUG", "data = $data")
         data?.let { data ->
             with(binding) {
                 vpContent.apply {
@@ -79,6 +80,7 @@ class ResultFragment : BaseVbFragment<FragmentResultBinding>(FragmentResultBindi
                     //預載3頁避免滑入才載圖片的空缺
                     adapter = PhotoViewPagerAdapter(data.images.map { it.src })
                 }
+                //沒照片時隱藏指示器
                 if (data.images.isEmpty()) {
                     containerIndicator.visibility = View.INVISIBLE
                 }
@@ -101,7 +103,7 @@ class ResultFragment : BaseVbFragment<FragmentResultBinding>(FragmentResultBindi
                     findNavController().popBackStack()
                 }
                 btShare.setOnClickListener {
-                    LinkFactory.startShareIntent(requireContext(),data.name,data.url)
+                    IntentUtil.startShareIntent(requireContext(), data.name, data.url)
                 }
                 tvWeb.apply {
                     text = data.official_site
@@ -113,7 +115,7 @@ class ResultFragment : BaseVbFragment<FragmentResultBinding>(FragmentResultBindi
                 with(includeToolBar) {
                     btFaceBook.setOnClickListener {
                         if (data.facebook.isNotBlank()) {
-                            LinkFactory.startFaceBookIntent(requireContext(), data.facebook)
+                            IntentUtil.startFaceBookIntent(requireContext(), data.facebook)
                         } else {
                             Toast.makeText(
                                 requireContext(),
@@ -125,7 +127,7 @@ class ResultFragment : BaseVbFragment<FragmentResultBinding>(FragmentResultBindi
                     }
                     btPhone.setOnClickListener {
                         if (data.tel.isNotBlank()) {
-                            LinkFactory.startPhoneCallIntent(requireContext(), data.tel)
+                            IntentUtil.startPhoneCallIntent(requireContext(), data.tel)
                         } else {
                             Toast.makeText(
                                 requireContext(),
@@ -137,7 +139,7 @@ class ResultFragment : BaseVbFragment<FragmentResultBinding>(FragmentResultBindi
                     }
                     btEmail.setOnClickListener {
                         if (data.email.isNotBlank()) {
-                            LinkFactory.startEmailIntent(requireContext(), data.email)
+                            IntentUtil.startEmailIntent(requireContext(), data.email)
                         } else {
                             Toast.makeText(
                                 requireContext(),
@@ -148,7 +150,7 @@ class ResultFragment : BaseVbFragment<FragmentResultBinding>(FragmentResultBindi
 
                     }
                     btMap.setOnClickListener {
-                        LinkFactory.startGoogleMapIntent(
+                        IntentUtil.startGoogleMapIntent(
                             requireContext(),
                             data.nlat,
                             data.elong,
@@ -158,10 +160,6 @@ class ResultFragment : BaseVbFragment<FragmentResultBinding>(FragmentResultBindi
                 }
             }
         }
-
-    }
-    private fun initModel() {
-
     }
 
 

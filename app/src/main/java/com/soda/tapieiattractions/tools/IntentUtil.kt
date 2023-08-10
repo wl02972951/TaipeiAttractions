@@ -6,28 +6,9 @@ import android.net.Uri
 import android.util.Log
 
 /**
- * 用於解析網址的工具類
+ * 各種外開intent行為
  */
-object LinkFactory {
-
-    /**
-     * 解析schema 跳轉位置
-     */
-    fun parseLinkIntent(context: Context, url: String?) {
-        if (url.isNullOrBlank()) return
-        val trimUrl = url.trim()
-        try {
-            val uri = Uri.parse(trimUrl)
-            when(uri.scheme){
-                "http","https"->{
-                    startWebIntent(context,trimUrl)
-                }
-            }
-        } catch (e: Exception) {
-            Logger.e("DEBUG_LINK", "can't open link : $url ,error:${e.message}")
-        }
-    }
-
+object IntentUtil {
 
     /**
      * 開啟google map
@@ -57,6 +38,9 @@ object LinkFactory {
         }
     }
 
+    /**
+     * 開啟分享intent
+     */
     fun startShareIntent(context: Context, title: String, url: String) {
         val shareText = "$title \n $url"
         val shareIntent = Intent().apply {
@@ -71,6 +55,9 @@ object LinkFactory {
         }
     }
 
+    /**
+     * 開啟faceBook Intent
+     */
     fun startFaceBookIntent(context: Context,url:String){
         val uri = Uri.parse("fb://facewebmodal/f?href=$url")
         val intent = Intent(Intent.ACTION_VIEW, uri)
@@ -82,6 +69,9 @@ object LinkFactory {
         }
     }
 
+    /**
+     * 開啟打電話intent
+     */
     fun startPhoneCallIntent(context: Context, phone: String) {
         val uri = Uri.parse("tel:$phone")
         val intent = Intent(Intent.ACTION_DIAL, uri)
@@ -92,6 +82,10 @@ object LinkFactory {
         }
 
     }
+
+    /**
+     * 開啟email intent
+     */
     fun startEmailIntent(context: Context, email: String) {
         try {
             val intent = Intent(Intent.ACTION_SENDTO).apply {
@@ -105,6 +99,9 @@ object LinkFactory {
     }
 
 
+    /**
+     * 開啟網頁intent
+     */
     private fun startWebIntent(context: Context, url: String) {
         try {
             val intent = Intent().apply {

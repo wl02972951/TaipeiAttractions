@@ -5,6 +5,7 @@
     <string name="transitionTitle" translatable="false">transitionTitle</string>
     <string name="transitionToolbar" translatable="false">transitionToolbar</string>
     <string name="transitionTag" translatable="false">transitionTag</string>
+    <string name="facebook" translatable="false">FaceBook</string>
 
 
     <string name="app_name">台北旅行ガイド</string>
@@ -21,6 +22,12 @@
     <string name="no_data">データがありません</string>
     <string name="web_site">公式ウェブサイト</string>
     <string name="loading">読み込み中</string>
+    <string name="filter_tag">フィルタータブ</string>
+    <string name="category">分類</string>
+    <string name="service">仕える</string>
+    <string name="friendly">フレンドリーな施設</string>
+    <string name="target">民族グループ</string>
+    <string name="conform">もちろん</string>
 
 
 </resources>

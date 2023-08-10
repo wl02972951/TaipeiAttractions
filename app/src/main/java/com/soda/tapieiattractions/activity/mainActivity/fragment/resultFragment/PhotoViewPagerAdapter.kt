@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.soda.tapieiattractions.R
 import com.soda.tapieiattractions.tools.loadImage
 
+/**
+ * 照片viewPager的adapter
+ */
 class PhotoViewPagerAdapter (private val imageUrls: List<String>) : RecyclerView.Adapter<PhotoViewPagerAdapter.PhotoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {

@@ -60,7 +60,6 @@ class LandingViewModel (application: Application): BaseViewModel(application){
             _landingProgress.value = LandingProgress.GetLanguage
             //取得當前手機語言
             val language = app.resources.configuration.locales[0].toLanguageTag()
-            Log.d("SODA_DEBUG","language : $language")
             SystemLanguage.values().forEach { //取手機預設語系
                 if (it.systemLanguage == language){
                     SystemSP.apiLanguageCode = it.apiCode
@@ -71,7 +70,6 @@ class LandingViewModel (application: Application): BaseViewModel(application){
             SystemSP.apiLanguageCode = SystemLanguage.English.apiCode
         }else{
             //系統設定語系
-            Log.d("SODA_DEBUG","SystemSP.apiLanguageCode : ${SystemSP.apiLanguageCode}")
             SystemLanguage.values().find { it.apiCode == SystemSP.apiLanguageCode }?.systemLanguage?.let {
                 val resources = app.resources
                 val configuration = resources.configuration

@@ -5,6 +5,7 @@
     <string name="transitionTitle" translatable="false">transitionTitle</string>
     <string name="transitionToolbar" translatable="false">transitionToolbar</string>
     <string name="transitionTag" translatable="false">transitionTag</string>
+    <string name="facebook" translatable="false">FaceBook</string>
 
 
     <string name="app_name">Panduan Perjalanan Taipei</string>
@@ -21,6 +22,12 @@
     <string name="no_data">Ups tidak punya data</string>
     <string name="web_site">Situs web resmi</string>
     <string name="loading">memuat</string>
+    <string name="filter_tag">tab filter</string>
+    <string name="category">Klasifikasi</string>
+    <string name="service">Melayani</string>
+    <string name="friendly">fasilitas yang ramah</string>
+    <string name="target">kelompok etnis</string>
+    <string name="conform">Tentu</string>
 
 
 </resources>

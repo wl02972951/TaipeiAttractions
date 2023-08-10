@@ -21,7 +21,6 @@ object AttractionApi {
             .addQuery("page",page)
             .addQuery("categoryIds",categoryQuery)
             .build()
-        Log.d("SODA_DEBUG","url = $url")
         return ApiServiceManager.get(url).map {
             val response = it.string()
             return@map Gson().fromJson(response,AttractionModel::class.java)

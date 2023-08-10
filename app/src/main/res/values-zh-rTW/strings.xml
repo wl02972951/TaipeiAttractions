@@ -5,6 +5,7 @@
     <string name="transitionTitle" translatable="false">transitionTitle</string>
     <string name="transitionToolbar" translatable="false">transitionToolbar</string>
     <string name="transitionTag" translatable="false">transitionTag</string>
+    <string name="facebook" translatable="false">FaceBook</string>
 
 
     <string name="app_name">台北旅遊通</string>
@@ -21,6 +22,12 @@
     <string name="no_data">Oops 沒有資料</string>
     <string name="web_site">官方網站</string>
     <string name="loading">載入中</string>
+    <string name="filter_tag">篩選標籤</string>
+    <string name="category">分類</string>
+    <string name="service">服務</string>
+    <string name="friendly">友善設施</string>
+    <string name="target">族群</string>
+    <string name="conform">確定</string>
 
 
 </resources>

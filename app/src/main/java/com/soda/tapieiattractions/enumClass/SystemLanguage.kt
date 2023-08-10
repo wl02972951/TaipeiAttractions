@@ -22,6 +22,8 @@ import com.soda.tapieiattractions.R
  * @param apiCode Api 代碼
  * @param language 顯示名稱
  * @param flagIcon 國旗icon
+ *
+ * P.S 目前印度的API 有問題，所以暫時不開放
  */
 enum class SystemLanguage(val systemLanguage: String,val apiCode:String,val language:String,@DrawableRes val flagIcon:Int){
     TraditionalChinese("zh-TW","zh-tw","繁體中文" ,R.drawable.icon_taiwan),

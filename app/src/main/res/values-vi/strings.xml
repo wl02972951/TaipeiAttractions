@@ -5,6 +5,7 @@
     <string name="transitionTitle" translatable="false">transitionTitle</string>
     <string name="transitionToolbar" translatable="false">transitionToolbar</string>
     <string name="transitionTag" translatable="false">transitionTag</string>
+    <string name="facebook" translatable="false">FaceBook</string>
 
 
     <string name="app_name">Hướng dẫn du lịch Đài Bắc</string>
@@ -21,6 +22,12 @@
     <string name="no_data">Rất tiếc không có dữ liệu</string>
     <string name="web_site">Trang web chính thức</string>
     <string name="loading">đang tải</string>
+    <string name="filter_tag">tab bộ lọc</string>
+    <string name="category">phân loại</string>
+    <string name="service">Phục vụ</string>
+    <string name="friendly">cơ sở vật chất thân thiện</string>
+    <string name="target">nhóm dân tộc</string>
+    <string name="conform">Chắc chắn</string>
 
 
 </resources>

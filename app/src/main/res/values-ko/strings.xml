@@ -5,6 +5,7 @@
     <string name="transitionTitle" translatable="false">transitionTitle</string>
     <string name="transitionToolbar" translatable="false">transitionToolbar</string>
     <string name="transitionTag" translatable="false">transitionTag</string>
+    <string name="facebook" translatable="false">FaceBook</string>
 
 
     <string name="app_name">타이베이 여행 가이드</string>
@@ -21,6 +22,12 @@
     <string name="no_data">데이터가 없습니다.</string>
     <string name="web_site">공식 웹 사이트</string>
     <string name="loading">로딩</string>
+    <string name="filter_tag">필터 탭</string>
+    <string name="category">분류</string>
+    <string name="service">제공하다</string>
+    <string name="friendly">친절한 시설</string>
+    <string name="target">인종 그룹</string>
+    <string name="conform">확신하는</string>
 
 
 </resources>

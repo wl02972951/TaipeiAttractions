@@ -20,6 +20,17 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:screenOrientation">landscape</item>
     </style>
+    <!--右邊滑入dialog-->
+    <style name="dialog_right_drawer" parent="dialog_fullScreen">
+        <item name="android:windowAnimationStyle">@style/dialog_right_drawer</item>
+    </style>
+
+
+    <style name="dialog_right_drawer_anim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_slide_in_right</item>
+        <item name="android:windowExitAnimation">@anim/anim_slide_out_right</item>
+    </style>
+
 
     <style name="TopCorner8DpImage" parent="">
         <item name="cornerFamilyTopRight">rounded</item>
