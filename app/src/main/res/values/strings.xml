@@ -1,4 +1,27 @@
 <resources>
-    <string name="app_name">TapieiAttractions</string>
+
+    <!--常數無須翻譯-->
+    <string name="transitionCover" translatable="false">transitionCover</string>
+    <string name="transitionTitle" translatable="false">transitionTitle</string>
+    <string name="transitionToolbar" translatable="false">transitionToolbar</string>
+    <string name="transitionTag" translatable="false">transitionTag</string>
+    <string name="facebook" translatable="false">FaceBook</string>
+
+
+    <string name="app_name">台北旅遊通</string>
     <string name="choiceLanguage">選擇語言</string>
+    <string name="open_map">開啟地圖</string>
+    <string name="phone">電話</string>
+    <string name="official_website">官方網站</string>
+    <string name="description">介紹</string>
+    <string name="email">信箱</string>
+    <string name="no_email">Oops! 沒有Email</string>
+    <string name="no_phone">Oops! 沒有電話</string>
+    <string name="no_facebook">Oops! 沒有faceBook</string>
+    <string name="search_hint">搜尋標籤：餐飲、購物...</string>
+    <string name="no_data">Oops 沒有資料</string>
+    <string name="web_site">官方網站</string>
+    <string name="loading">載入中</string>
+
+
 </resources>

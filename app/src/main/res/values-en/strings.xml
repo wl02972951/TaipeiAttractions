@@ -1,0 +1,26 @@
+<resources>
+
+    <!--常數無須翻譯-->
+    <string name="transitionCover" translatable="false">transitionCover</string>
+    <string name="transitionTitle" translatable="false">transitionTitle</string>
+    <string name="transitionToolbar" translatable="false">transitionToolbar</string>
+    <string name="transitionTag" translatable="false">transitionTag</string>
+
+
+    <string name="app_name">Taipei Travel Guide</string>
+    <string name="choiceLanguage">Choose a language</string>
+    <string name="open_map">open map</string>
+    <string name="phone">Telephone</string>
+    <string name="official_website">Official website</string>
+    <string name="description">introduce</string>
+    <string name="email">mailbox</string>
+    <string name="no_email">Oops! No Email</string>
+    <string name="no_phone">Oops! No phone</string>
+    <string name="no_facebook">Oops! No faceBook</string>
+    <string name="search_hint">Search Tags: Dining, Shopping...</string>
+    <string name="no_data">Oops has no data</string>
+    <string name="web_site">Official website</string>
+    <string name="loading">loading</string>
+
+
+</resources>

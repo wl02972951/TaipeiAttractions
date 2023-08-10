@@ -1,0 +1,26 @@
+<resources>
+
+    <!--常數無須翻譯-->
+    <string name="transitionCover" translatable="false">transitionCover</string>
+    <string name="transitionTitle" translatable="false">transitionTitle</string>
+    <string name="transitionToolbar" translatable="false">transitionToolbar</string>
+    <string name="transitionTag" translatable="false">transitionTag</string>
+
+
+    <string name="app_name">Panduan Perjalanan Taipei</string>
+    <string name="choiceLanguage">Pilih bahasa</string>
+    <string name="open_map">buka peta</string>
+    <string name="phone">Telepon</string>
+    <string name="official_website">Situs web resmi</string>
+    <string name="description">memperkenalkan</string>
+    <string name="email">kotak surat</string>
+    <string name="no_email">Ups! Tidak Ada Email</string>
+    <string name="no_phone">Ups! Tidak ada telepon</string>
+    <string name="no_facebook">Ups! Tidak ada facebook</string>
+    <string name="search_hint">Tag Pencarian: Bersantap, Berbelanja...</string>
+    <string name="no_data">Ups tidak punya data</string>
+    <string name="web_site">Situs web resmi</string>
+    <string name="loading">memuat</string>
+
+
+</resources>

@@ -3,7 +3,6 @@ package com.soda.tapieiattractions.api
 import android.util.Log
 import com.soda.tapieiattractions.sharedPreference.SystemSP
 import com.soda.tapieiattractions.tools.Logger
-import com.tencent.mmkv.BuildConfig
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -41,7 +40,7 @@ object ApiServiceManager {
      * 並設定語言
      */
     fun getBaseUrl ():String{
-        return "$BASE_URL${SystemSP.systemLanguage}/"
+        return "$BASE_URL${SystemSP.apiLanguageCode}/"
     }
 
 

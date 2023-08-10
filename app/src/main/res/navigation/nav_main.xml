@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_app"
+    app:startDestination="@id/mainListFragment">
+    <fragment
+        android:id="@+id/mainListFragment"
+        android:name="com.soda.tapieiattractions.activity.mainActivity.fragment.mainListFragement.MainListFragment"
+        tools:layout="@layout/fragment_main_list"
+        android:label="MainListFragment" >
+        <action
+            android:id="@+id/action_to_result_page"
+            app:popExitAnim="@anim/anim_slide_out_right"
+            app:popEnterAnim="@anim/anim_slide_in_left"
+            app:destination="@id/resultFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.soda.tapieiattractions.activity.mainActivity.fragment.resultFragment.ResultFragment"
+        android:label="ResultFragment" >
+
+        <argument
+            android:name="index"
+            app:argType="integer"
+            />
+
+    </fragment>
+
+
+</navigation>

@@ -1,0 +1,26 @@
+<resources>
+
+    <!--常數無須翻譯-->
+    <string name="transitionCover" translatable="false">transitionCover</string>
+    <string name="transitionTitle" translatable="false">transitionTitle</string>
+    <string name="transitionToolbar" translatable="false">transitionToolbar</string>
+    <string name="transitionTag" translatable="false">transitionTag</string>
+
+
+    <string name="app_name">台北旅游通</string>
+    <string name="choiceLanguage">选择语言</string>
+    <string name="open_map">开启地图</string>
+    <string name="phone">电话</string>
+    <string name="official_website">官方网站</string>
+    <string name="description">介绍</string>
+    <string name="email">信箱</string>
+    <string name="no_email">Oops! 没有Email</string>
+    <string name="no_phone">Oops! 没有电话</string>
+    <string name="no_facebook">Oops! 没有faceBook</string>
+    <string name="search_hint">搜寻标签：餐饮、购物...</string>
+    <string name="no_data">Oops 没有资料</string>
+    <string name="web_site">官方网站</string>
+    <string name="loading">载入中</string>
+
+
+</resources>

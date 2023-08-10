@@ -50,6 +50,9 @@ class WebViewActivity : BaseVbActivity<ActivityWebViewBinding>(ActivityWebViewBi
 
     private fun initView() {
         with(binding.webView){
+            settings.apply {
+                javaScriptEnabled = true
+            }
             webChromeClient = object :WebChromeClient(){
                 //網頁載入進度
                 override fun onProgressChanged(view: WebView?, newProgress: Int) {

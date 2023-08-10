@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 /**
  * 分類資料
  */
-data class CategoryData(
+data class CategoryModel(
     val `data`: Category,
     val total: Int
 ){

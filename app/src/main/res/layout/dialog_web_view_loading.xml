@@ -5,7 +5,19 @@
     android:background="@color/white"
     android:layout_height="match_parent">
 
-
+    <com.hjq.shape.view.ShapeImageView
+        android:id="@+id/vBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:elevation="10dp"
+        android:padding="10dp"
+        android:src="@drawable/icon_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shape_radius="8dp"
+        app:shape_solidColor="#33000000" />
 
     <ImageView
         android:id="@+id/backImg"
@@ -18,13 +30,17 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <View
-        android:id="@+id/vBack"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="lottie_anim_web_loading.json"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 
@@ -44,28 +60,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/tvLoad">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animationView"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true" />
-
         <TextView
             android:id="@+id/tvProgress"
             android:layout_marginStart="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:text="0"
-            android:textSize="14sp"/>
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:textColor="@color/black"
             android:text="%"
-            android:textSize="14sp"/>
-
+            android:textSize="16sp"/>
 
     </LinearLayout>
 
@@ -75,7 +83,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
-        android:text="载入资料"
+        android:textSize="16sp"
+        android:text="@string/loading"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

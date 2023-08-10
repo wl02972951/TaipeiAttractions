@@ -15,11 +15,22 @@ object SystemSP {
      * 系統語言
      * 預設為繁體中文
      */
-    var systemLanguage :String
+    var apiLanguageCode :String?
         get() {
-            return kv.decodeString("systemLanguage","zh-tw")?:"zh-tw"
+            return kv.decodeString("systemLanguage",null)
         }
         set(value) {
             kv.encode("systemLanguage",value)
+        }
+
+    /**
+     * 儲存所有分類資料
+     */
+    var categoryData:String
+        get() {
+            return kv.decodeString("categoryData","")?:""
+        }
+        set(value) {
+            kv.encode("categoryData",value)
         }
 }

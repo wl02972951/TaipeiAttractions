@@ -1,0 +1,26 @@
+<resources>
+
+    <!--常數無須翻譯-->
+    <string name="transitionCover" translatable="false">transitionCover</string>
+    <string name="transitionTitle" translatable="false">transitionTitle</string>
+    <string name="transitionToolbar" translatable="false">transitionToolbar</string>
+    <string name="transitionTag" translatable="false">transitionTag</string>
+
+
+    <string name="app_name">Guía de viaje de Taipéi</string>
+    <string name="choiceLanguage">Elige un idioma</string>
+    <string name="open_map">abrir mapa</string>
+    <string name="phone">Teléfono</string>
+    <string name="official_website">Página web oficial</string>
+    <string name="description">introducir</string>
+    <string name="email">buzón</string>
+    <string name="no_email">¡Vaya! No hay correo electrónico</string>
+    <string name="no_phone">¡Vaya! No hay teléfono.</string>
+    <string name="no_facebook">¡Vaya! No hay Facebook</string>
+    <string name="search_hint">Etiquetas de búsqueda: Restaurantes, Compras...</string>
+    <string name="no_data">Ups no tiene datos</string>
+    <string name="web_site">Página web oficial</string>
+    <string name="loading">cargando</string>
+
+
+</resources>

@@ -1,0 +1,26 @@
+<resources>
+
+    <!--常數無須翻譯-->
+    <string name="transitionCover" translatable="false">transitionCover</string>
+    <string name="transitionTitle" translatable="false">transitionTitle</string>
+    <string name="transitionToolbar" translatable="false">transitionToolbar</string>
+    <string name="transitionTag" translatable="false">transitionTag</string>
+
+
+    <string name="app_name">คู่มือท่องเที่ยวไทเป</string>
+    <string name="choiceLanguage">เลือกภาษา</string>
+    <string name="open_map">เปิดแผนที่</string>
+    <string name="phone">โทรศัพท์</string>
+    <string name="official_website">เว็บไซต์ทางการ</string>
+    <string name="description">แนะนำ</string>
+    <string name="email">กล่องจดหมาย</string>
+    <string name="no_email">อ๊ะ! ไม่มีอีเมล</string>
+    <string name="no_phone">อุ๊ย ไม่มีโทรศัพท์</string>
+    <string name="no_facebook">อ๊ะ! ไม่มีเฟซบุ๊ค</string>
+    <string name="search_hint">ค้นหาแท็ก: กิน, ช้อปปิ้ง...</string>
+    <string name="no_data">อ๊ะไม่มีข้อมูล</string>
+    <string name="web_site">เว็บไซต์ทางการ</string>
+    <string name="loading">กำลังโหลด</string>
+
+
+</resources>

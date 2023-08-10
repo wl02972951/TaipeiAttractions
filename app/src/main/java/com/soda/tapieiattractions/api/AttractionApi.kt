@@ -2,46 +2,43 @@ package com.soda.tapieiattractions.api
 
 import android.util.Log
 import com.google.gson.Gson
-import com.soda.tapieiattractions.model.AttractionData
-import com.soda.tapieiattractions.model.CategoryData
+import com.soda.tapieiattractions.model.AttractionModel
+import com.soda.tapieiattractions.model.CategoryModel
 import com.soda.tapieiattractions.tools.UrlBuilder
 import io.reactivex.Single
 
+/**
+ * 參閱API
+ * https://www.travel.taipei/open-api/swagger/ui/index#/Attractions/Attractions_All
+ */
 object AttractionApi {
 
     /**
      * 取得畫面資料
      */
-    fun getAttraction(page:Int,category: List<Int>? = null):Single<AttractionData>{
+    fun getAttraction(page:Int,categoryQuery: String?=null):Single<AttractionModel>{
         val url = UrlBuilder(ApiServiceManager.getBaseUrl()+ "Attractions/All")
-            .apply {
-                addQuery("page",page)
-                if (category.isNullOrEmpty().not()){ //如果分類不是空的
-                    val categoryQuery = category?.joinToString(separator = ",") //將list 轉成 以,分隔的字串
-                    addQuery("category",categoryQuery) //加入分類參數
-                }
-            }
+            .addQuery("page",page)
+            .addQuery("categoryIds",categoryQuery)
             .build()
         Log.d("SODA_DEBUG","url = $url")
         return ApiServiceManager.get(url).map {
             val response = it.string()
-            Log.d("SODA_DEBUG","response = $response")
-            return@map Gson().fromJson(response,AttractionData::class.java)
+            return@map Gson().fromJson(response,AttractionModel::class.java)
         }
     }
 
     /**
      * 取得所有分類
      */
-    fun getCategory():Single<CategoryData>{
+    fun getCategory():Single<CategoryModel>{
         val url = UrlBuilder(ApiServiceManager.getBaseUrl()+ "Miscellaneous/Categories")
             .addQuery("type","Attractions")
             .build()
 
         return ApiServiceManager.get(url).map {
             val response = it.string()
-            Log.d("SODA_DEBUG","response = $response")
-            return@map Gson().fromJson(response,CategoryData::class.java)
+            return@map Gson().fromJson(response,CategoryModel::class.java)
         }
     }
 }

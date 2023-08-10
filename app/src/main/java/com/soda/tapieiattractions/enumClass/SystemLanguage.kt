@@ -1,6 +1,7 @@
 package com.soda.tapieiattractions.enumClass
 
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import com.soda.tapieiattractions.R
 
 /**
@@ -16,15 +17,20 @@ import com.soda.tapieiattractions.R
  * id -印尼文
  * th -泰文
  * vi -越南文
+ *
+ * @param systemLanguage Android系統語言代碼
+ * @param apiCode Api 代碼
+ * @param language 顯示名稱
+ * @param flagIcon 國旗icon
  */
-enum class SystemLanguage(val apiCode:String,val language:String,@DrawableRes val flagIcon:Int){
-    TraditionalChinese("zh-tw","繁體中文" ,R.drawable.icon_taiwan),
-    SimplifiedChinese("zh-cn","简体中文" ,R.drawable.icon_china),
-    English("en","English",R.drawable.icon_usa),
-    Japanese("ja","日本語",R.drawable.icon_japan),
-    Korean("ko","한국어",R.drawable.icon_korea),
-    Spanish("es","Español",R.drawable.icon_spain),
-    Indonesian("id","Indonesia",R.drawable.icon_indonesia),
-    Thai("th","แบบไทย",R.drawable.icon_thailand),
-    Vietnamese("vi","Tiếng Việt",R.drawable.icon_vietnam)
+enum class SystemLanguage(val systemLanguage: String,val apiCode:String,val language:String,@DrawableRes val flagIcon:Int){
+    TraditionalChinese("zh-TW","zh-tw","繁體中文" ,R.drawable.icon_taiwan),
+    SimplifiedChinese("zh-CN","zh-cn","简体中文" ,R.drawable.icon_china),
+    English("en","en","English",R.drawable.icon_usa),
+    Japanese("ja","ja","日本語",R.drawable.icon_japan),
+    Korean("ko","ko","한국어",R.drawable.icon_korea),
+    Spanish("es","es","Español",R.drawable.icon_spain),
+    Indonesian("in-ID","id","Indonesia",R.drawable.icon_indonesia),
+    Thai("th","th","แบบไทย",R.drawable.icon_thailand),
+    Vietnamese("vi","vi","Tiếng Việt",R.drawable.icon_vietnam)
 }

@@ -1,0 +1,26 @@
+<resources>
+
+    <!--常數無須翻譯-->
+    <string name="transitionCover" translatable="false">transitionCover</string>
+    <string name="transitionTitle" translatable="false">transitionTitle</string>
+    <string name="transitionToolbar" translatable="false">transitionToolbar</string>
+    <string name="transitionTag" translatable="false">transitionTag</string>
+
+
+    <string name="app_name">Hướng dẫn du lịch Đài Bắc</string>
+    <string name="choiceLanguage">Chọn một ngôn ngữ</string>
+    <string name="open_map">mở bản đồ</string>
+    <string name="phone">Điện thoại</string>
+    <string name="official_website">Trang web chính thức</string>
+    <string name="description">giới thiệu</string>
+    <string name="email">hộp thư</string>
+    <string name="no_email">Rất tiếc! Không có Email</string>
+    <string name="no_phone">Rất tiếc! Không có điện thoại</string>
+    <string name="no_facebook">Rất tiếc! Không có faceBook</string>
+    <string name="search_hint">Từ khóa tìm kiếm: Ăn uống, Mua sắm...</string>
+    <string name="no_data">Rất tiếc không có dữ liệu</string>
+    <string name="web_site">Trang web chính thức</string>
+    <string name="loading">đang tải</string>
+
+
+</resources>

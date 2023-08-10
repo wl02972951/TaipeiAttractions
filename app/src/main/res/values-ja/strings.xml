@@ -1,0 +1,26 @@
+<resources>
+
+    <!--常數無須翻譯-->
+    <string name="transitionCover" translatable="false">transitionCover</string>
+    <string name="transitionTitle" translatable="false">transitionTitle</string>
+    <string name="transitionToolbar" translatable="false">transitionToolbar</string>
+    <string name="transitionTag" translatable="false">transitionTag</string>
+
+
+    <string name="app_name">台北旅行ガイド</string>
+    <string name="choiceLanguage">言語を選択してください</string>
+    <string name="open_map">マップを開く</string>
+    <string name="phone">電話</string>
+    <string name="official_website">公式ウェブサイト</string>
+    <string name="description">導入</string>
+    <string name="email">メールボックス</string>
+    <string name="no_email">おっと！メールがありません</string>
+    <string name="no_phone">おっと、電話がありません</string>
+    <string name="no_facebook">おっと! faceBook はありません</string>
+    <string name="search_hint">検索タグ: ダイニング、ショッピング...</string>
+    <string name="no_data">データがありません</string>
+    <string name="web_site">公式ウェブサイト</string>
+    <string name="loading">読み込み中</string>
+
+
+</resources>

@@ -2,6 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.TapieiAttractions" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
@@ -17,6 +19,14 @@
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:screenOrientation">landscape</item>
+    </style>
+
+    <style name="TopCorner8DpImage" parent="">
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeTopLeft">8dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeTopRight">8dp</item>
     </style>
 
 

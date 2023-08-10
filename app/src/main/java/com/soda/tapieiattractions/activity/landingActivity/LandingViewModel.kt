@@ -4,52 +4,93 @@ import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import android.os.Build.VERSION_CODES.P
 import android.util.Log
+import androidx.annotation.IntDef
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.soda.tapieiattractions.api.AttractionApi
 import com.soda.tapieiattractions.base.BaseViewModel
-import com.soda.tapieiattractions.model.AttractionData
+import com.soda.tapieiattractions.enumClass.SystemLanguage
+import com.soda.tapieiattractions.globalData.CategoryData
+import com.soda.tapieiattractions.sharedPreference.SystemSP
+import java.util.Locale
 
 class LandingViewModel (application: Application): BaseViewModel(application){
 
+    /**
+     * 錯誤代碼定義
+     */
+    @IntDef(LandingErrorCode.GetCategoryError)
+    @Retention(AnnotationRetention.SOURCE)
+    annotation class LandingErrorCode{
+        companion object{
+            //取得分類資料錯誤
+            const val GetCategoryError = -0x12
+        }
+    }
+    /**
+     * Landing進度定義
+     */
+    sealed class LandingProgress{
+        //取得語系
+        object GetLanguage: LandingProgress()
+        //取得分類
+        object GetCategory: LandingProgress()
+        //完成
+        object FinishLanding: LandingProgress()
+        data class Error(@LandingErrorCode val errorCode: Int): LandingProgress()
+    }
 
-    private val _mAttractionLiveData = MutableLiveData<String>()
-    val attractionLiveData :LiveData<String>
-        get()= _mAttractionLiveData
+    private val _landingProgress = MutableLiveData<LandingProgress>()
+    val landingProgress :LiveData<LandingProgress> = _landingProgress
+
 
     fun startLanding(){
-
-    }
-
-    fun checkNetworkAvailable():Boolean{
-        // 獲取 ConnectivityManager，來查詢網絡連接狀態
-        val connectivityManager = app.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        // 獲取當前活躍的網絡，如果沒有活躍的網絡，則返回 false
-        val networkCapabilities = connectivityManager.activeNetwork ?: return false
-        //如果拿到的是空資料代表目前沒有可以用的網路
-        val actNw = connectivityManager.getNetworkCapabilities(networkCapabilities) ?: return false
-        return true
+        getSystemDefaultLanguage()
+        getCategoryData()
     }
 
 
-    fun getAttractionData(){
-        AttractionApi.getAttraction(1).subscribe({
-        },{
-            Log.e(TAG,"getAttractionData error :",it)
-        }).autoDispose()
+    /**
+     * 取得系統預設語言決定Api要使用的語系
+     */
+    private fun getSystemDefaultLanguage(){
+        //如果尚未設定
+        if (SystemSP.apiLanguageCode == null){
+            _landingProgress.value = LandingProgress.GetLanguage
+            //取得當前手機語言
+            val language = app.resources.configuration.locales[0].toLanguageTag()
+            Log.d("SODA_DEBUG","language : $language")
+            SystemLanguage.values().forEach { //取手機預設語系
+                if (it.systemLanguage == language){
+                    SystemSP.apiLanguageCode = it.apiCode
+                    return
+                }
+            }
+            //如果都沒有符合的使用英文
+            SystemSP.apiLanguageCode = SystemLanguage.English.apiCode
+        }else{
+            //系統設定語系
+            Log.d("SODA_DEBUG","SystemSP.apiLanguageCode : ${SystemSP.apiLanguageCode}")
+            SystemLanguage.values().find { it.apiCode == SystemSP.apiLanguageCode }?.systemLanguage?.let {
+                val resources = app.resources
+                val configuration = resources.configuration
+                configuration.setLocale(Locale(it))
+                resources.updateConfiguration(configuration, resources.displayMetrics)
+            }
 
+        }
 
     }
-
-    fun getCateGoryData(){
+    private fun getCategoryData(){
+        _landingProgress.value = LandingProgress.GetCategory
         AttractionApi.getCategory().subscribe({
-            _mAttractionLiveData.postValue(it.toString())
+            CategoryData.setCategoryData(it.data)
+            _landingProgress.value = LandingProgress.FinishLanding
         },{
-
+            _landingProgress.value = LandingProgress.Error(LandingErrorCode.GetCategoryError)
+            Log.e(TAG,"getCategoryData error : ${it.message}",it)
         }).autoDispose()
     }
-
 
 }
