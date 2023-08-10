@@ -66,8 +66,8 @@ class LandingViewModel (application: Application): BaseViewModel(application){
                     return
                 }
             }
-            //如果都沒有符合的使用英文
-            SystemSP.apiLanguageCode = SystemLanguage.English.apiCode
+            //如果都沒有符合的使用中文
+            SystemSP.apiLanguageCode = SystemLanguage.TraditionalChinese.apiCode
         }else{
             //系統設定語系
             SystemLanguage.values().find { it.apiCode == SystemSP.apiLanguageCode }?.systemLanguage?.let {
